@@ -1,0 +1,43 @@
+.BlogDetailsRoute {
+  margin: 9rem 75px;
+}
+
+.BlogDetailsRoute .title-and-date-container {
+  display: flex;
+  align-items: center;
+  margin: 25px 20px;
+}
+
+.BlogDetailsRoute .title-and-date-container * {
+  margin: 0 10px;
+}
+
+.BlogDetailsRoute .title-and-date-container h2 {
+  font-size: 24px;
+}
+
+.BlogDetailsRoute .title-and-date-container p {
+  font-size: 16px;
+  width: 150px;
+}
+
+.BlogDetailsRoute .body-text {
+  margin: 35px 5%;
+}
+
+.BlogDetailsRoute img {
+  width: 100%;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1450px) {
+  .BlogDetailsRoute .title-and-date-container h2 {
+    font-size: 36px;
+  }
+
+  .BlogDetailsRoute .title-and-date-container p {
+    font-size: 18px;
+  }
+}

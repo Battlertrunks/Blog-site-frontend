@@ -1,0 +1,20 @@
+.App {
+  min-height: calc(100vh - 34px);
+}
+
+.App .ContainerBlogsRoute {
+  z-index: 0;
+}
+
+.App .background-design {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+}
+
+.App Link {
+  text-decoration: none;
+}

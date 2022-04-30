@@ -1,0 +1,27 @@
+.ContainerBlogsRoute {
+  padding: 0 0.5em;
+  margin-top: 6em;
+}
+
+.title {
+  font-size: 1.85rem;
+  text-align: center;
+}
+
+.column-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.column-layout ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+@media only screen and (min-width: 865px) {
+  .column-layout ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
