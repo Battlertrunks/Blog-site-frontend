@@ -1,11 +1,10 @@
 .BlogDetailsRoute {
-  margin: 9rem 75px;
+  margin: 9rem 15px;
 }
 
 .BlogDetailsRoute .title-and-date-container {
   display: flex;
   align-items: center;
-  margin: 25px 20px;
 }
 
 .BlogDetailsRoute .title-and-date-container * {
@@ -32,7 +31,19 @@
   margin: 0 auto;
 }
 
+@media only screen and (min-width: 865px) {
+  .BlogDetailsRoute {
+    margin: 9rem 75px;
+  }
+}
+
 @media only screen and (min-width: 1450px) {
+  .BlogDetailsRoute .title-and-date-container {
+    display: flex;
+    align-items: center;
+    margin: 25px 20px;
+  }
+
   .BlogDetailsRoute .title-and-date-container h2 {
     font-size: 36px;
   }

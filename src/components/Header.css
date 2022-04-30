@@ -32,7 +32,7 @@
   top: 0;
   bottom: 0;
   transform: translateX(100%);
-  width: 40%;
+  width: 45%;
   padding-top: 5em;
   background-color: #fff;
   transition: 0.5s transform ease-out;
@@ -58,7 +58,7 @@
   padding: 1.25em 1em;
   width: 100%;
   display: inline-block;
-  font-size: 18px;
+  font-size: 1rem;
   text-decoration: none;
   color: #555;
 }
@@ -102,7 +102,7 @@
 }
 
 .Header .profile-header img {
-  width: 35px;
+  width: 25px;
   border-radius: 50%;
 }
 
@@ -110,10 +110,8 @@
   border: #222 1px solid;
 }
 
-.Header div {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.Header div p {
+  font-size: 0.7rem;
 }
 
 /* Temporary Solution: Stops the animation for activating when changing from desktop to mobile */
@@ -135,6 +133,16 @@
     display: block;
   }
 
+  .Header div {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .Header .profile-header img {
+    width: 35px;
+  }
+
   .nav-links li {
     list-style: none;
     display: inline-block;
@@ -150,7 +158,6 @@
     padding: 0.15em 0.5em;
     display: inline-block;
     width: auto;
-    font-size: 18px;
     text-decoration: none;
     color: #555;
   }

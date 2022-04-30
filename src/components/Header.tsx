@@ -41,6 +41,11 @@ const Header = () => {
           <li>
             <Link to="/contact-page">Contact</Link>
           </li>
+          {user && (
+            <li>
+              <Link to="/create-blog">Post</Link>
+            </li>
+          )}
           <li>
             <button
               className="close-btn"
