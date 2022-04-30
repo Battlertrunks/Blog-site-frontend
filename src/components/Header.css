@@ -12,6 +12,11 @@
   z-index: 2;
 }
 
+.Header button {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 400;
+}
+
 .Header .link {
   text-decoration: none;
 }
@@ -48,7 +53,8 @@
   display: block;
 }
 
-.nav-links a {
+.nav-links a,
+.Header .signout-btn {
   padding: 1.25em 1em;
   width: 100%;
   display: inline-block;
@@ -62,11 +68,52 @@
   background-color: #eee;
 }
 
-.Header button {
+.Header .nav-links .signout-btn:hover {
+  text-decoration: underline;
+}
+
+.Header .sidebar-btn,
+.Header .close-btn {
   border: none;
   background-color: transparent;
   font-size: 1.75rem;
   cursor: pointer;
+}
+
+.Header .signin-btn,
+.Header .signout-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.Header p {
+  color: #555;
+}
+
+.Header .profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.Header .profile-header * {
+  margin: 0 0.25em;
+}
+
+.Header .profile-header img {
+  width: 35px;
+  border-radius: 50%;
+}
+
+.Header .signin-btn {
+  border: #222 1px solid;
+}
+
+.Header div {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Temporary Solution: Stops the animation for activating when changing from desktop to mobile */
@@ -93,7 +140,13 @@
     display: inline-block;
   }
 
-  .nav-links a {
+  .Header .nav-links .signout-btn {
+    background-color: #555;
+    color: #fff;
+  }
+
+  .nav-links a,
+  .Header .signout-btn {
     padding: 0.15em 0.5em;
     display: inline-block;
     width: auto;
@@ -102,14 +155,27 @@
     color: #555;
   }
 
-  .nav-links a:hover {
+  .nav-links a:hover,
+  .Header .signin-btn:hover {
     transition: 0.1s background-color ease;
     background-color: transparent;
     color: #888;
     text-decoration: underline;
   }
 
-  .Header button {
+  .Header .signout-btn {
+    border: 1px #555 solid;
+    margin: 0 0.5em;
+  }
+
+  .Header .nav-links .signout-btn:hover {
+    background-color: #fff;
+    color: #555;
+    text-decoration: none;
+  }
+
+  .Header .sidebar-btn,
+  .Header .close-btn {
     display: none;
   }
 }

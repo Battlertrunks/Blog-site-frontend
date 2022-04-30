@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { signInWithGoogle, signOut } from "../firebaseConfig";
 import "./Header.css";
 
 const Header = () => {
   const [sidebarToggle, setSidebarToggle] = useState<boolean>(false);
+
+  const { user } = useContext(AuthContext);
 
   const activateSidebar: string = sidebarToggle ? "active" : "";
 
@@ -12,7 +16,20 @@ const Header = () => {
       <Link className="link" to="/">
         <h1>Type-a-Script</h1>
       </Link>
-
+      {user ? (
+        <div className="profile-header">
+          <p>{user.displayName}</p>
+          <img src={user.photoURL!} alt="Profile" />
+        </div>
+      ) : (
+        <div>
+          {!user && (
+            <button className="signin-btn" onClick={signInWithGoogle}>
+              Sign in
+            </button>
+          )}
+        </div>
+      )}
       <nav>
         <ul className={`nav-links ${activateSidebar}`}>
           <li>
@@ -32,8 +49,15 @@ const Header = () => {
               <i className="fa-solid fa-arrow-right"></i>
             </button>
           </li>
+          {user && (
+            <li>
+              <button className="signout-btn" onClick={signOut}>
+                Sign Out
+              </button>
+            </li>
+          )}
         </ul>
-        <button onClick={() => setSidebarToggle(true)}>
+        <button className="sidebar-btn" onClick={() => setSidebarToggle(true)}>
           <i className="fa-solid fa-bars"></i>
         </button>
       </nav>
