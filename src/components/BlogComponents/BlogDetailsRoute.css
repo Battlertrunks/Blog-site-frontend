@@ -4,7 +4,8 @@
 
 .BlogDetailsRoute .title-and-date-container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .BlogDetailsRoute .title-and-date-container * {
@@ -35,12 +36,15 @@
   .BlogDetailsRoute {
     margin: 9rem 75px;
   }
+  .BlogDetailsRoute .title-and-date-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media only screen and (min-width: 1450px) {
   .BlogDetailsRoute .title-and-date-container {
-    display: flex;
-    align-items: center;
     margin: 25px 20px;
   }
 

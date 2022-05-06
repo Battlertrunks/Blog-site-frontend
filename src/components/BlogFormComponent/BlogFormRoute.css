@@ -1,0 +1,12 @@
+.BlogFormRoute {
+  margin: 0 1em;
+  margin-top: 5em;
+}
+
+.BlogFormRoute * {
+  display: block;
+}
+
+.BlogFormRoute label {
+  margin-top: 2em;
+}

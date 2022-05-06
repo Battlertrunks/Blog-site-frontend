@@ -53,11 +53,14 @@
   display: block;
 }
 
+.nav-links a {
+  display: inline-block;
+}
+
 .nav-links a,
 .Header .signout-btn {
   padding: 1.25em 1em;
   width: 100%;
-  display: inline-block;
   font-size: 1rem;
   text-decoration: none;
   color: #555;
@@ -66,10 +69,6 @@
 .nav-links a:hover {
   transition: 0.1s background-color ease;
   background-color: #eee;
-}
-
-.Header .nav-links .signout-btn:hover {
-  text-decoration: underline;
 }
 
 .Header .sidebar-btn,
@@ -86,6 +85,24 @@
   border: none;
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+.Header .signout-btn {
+  width: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em auto;
+  height: 1em;
+  background-color: #555;
+  border: 1px #555 solid;
+  border-radius: 0.1em;
+}
+
+.Header .signout-btn:hover {
+  background-color: transparent;
+  color: #555;
 }
 
 .Header p {
@@ -160,6 +177,11 @@
     width: auto;
     text-decoration: none;
     color: #555;
+  }
+
+  .Header .signout-btn {
+    height: auto;
+    padding: 0.4em;
   }
 
   .nav-links a:hover,

@@ -1,0 +1,14 @@
+.AboutRoute {
+  margin: 5em 2em;
+}
+
+.AboutRoute h3 {
+  margin-top: 4em;
+  margin-bottom: 1em;
+}
+
+.AboutRoute h4 {
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
