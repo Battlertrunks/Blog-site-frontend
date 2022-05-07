@@ -4,7 +4,7 @@ export interface Paragraph {
 
 export default interface Article {
   _id?: string;
-  image: string;
+  image?: string | undefined;
   title: string;
   shortDescription: string;
   date: string;

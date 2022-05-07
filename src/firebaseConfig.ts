@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 // Import the functions you need from the SDKs you need
 
@@ -29,3 +30,5 @@ export function signInWithGoogle(): void {
 export function signOut(): void {
   auth.signOut();
 }
+
+export const storage = getStorage(app);

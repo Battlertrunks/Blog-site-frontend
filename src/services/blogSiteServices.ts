@@ -14,5 +14,5 @@ export const getBlogDetails = async (id: string): Promise<Article> => {
 };
 
 export const uploadBlog = async (blog: Article): Promise<Article> => {
-  return (await axios.post(`${url}/upload`, blog)).data;
+  return (await axios.post(`${url}/articles/upload`, blog)).data;
 };
