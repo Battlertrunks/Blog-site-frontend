@@ -9,5 +9,5 @@ export default interface Article {
   shortDescription: string;
   date: string;
   img_alt: string;
-  bodyText: Paragraph[];
+  bodyText: string;
 }

@@ -21,7 +21,7 @@
   width: 150px;
 }
 
-.BlogDetailsRoute .body-text {
+.BlogDetailsRoute .body-text * {
   margin: 35px 5%;
 }
 

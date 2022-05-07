@@ -15,6 +15,8 @@ const BlogDetailsRoute = () => {
     }
   }, [id]);
 
+  const htmlBody: string = information?.bodyText!;
+
   return (
     <section className="BlogDetailsRoute">
       <div className="title-and-date-container">
@@ -22,11 +24,10 @@ const BlogDetailsRoute = () => {
         <p>- {information?.date}</p>
       </div>
       <img src={information?.image} alt={information?.img_alt} />
-      {information?.bodyText.map((item, index) => (
-        <p className="body-text" key={index}>
-          {item.paragraph}
-        </p>
-      ))}
+      <div
+        className="body-text"
+        dangerouslySetInnerHTML={{ __html: htmlBody }}
+      />
     </section>
   );
 };

@@ -1,5 +1,5 @@
 .BlogFormRoute {
-  margin: 0 1em;
+  margin: 0 2em;
   margin-top: 5em;
 }
 
@@ -9,4 +9,34 @@
 
 .BlogFormRoute label {
   margin-top: 2em;
+}
+
+.BlogFormRoute input,
+.BlogFormRoute textarea {
+  display: inline-block;
+  width: 100%;
+}
+
+.BlogFormRoute input {
+  padding: 0.5em 0.2em;
+}
+
+.BlogFormRoute textarea {
+  height: 25em;
+}
+
+.BlogFormRoute button {
+  margin: 5em auto;
+  width: 12em;
+  height: 2em;
+  border: none;
+  background-color: lightseagreen;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0.1em;
+}
+
+.BlogFormRoute button:hover {
+  transition: 0.05s background-color ease;
+  background-color: rgb(63, 208, 201);
 }

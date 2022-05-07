@@ -1,5 +1,4 @@
 import axios from "axios";
-import BlogCard from "../models/Article";
 import Article from "../models/Article";
 
 // Gets the URL.
@@ -12,4 +11,8 @@ export const getBlogCards = async (): Promise<Article[]> => {
 
 export const getBlogDetails = async (id: string): Promise<Article> => {
   return (await axios.get(`${url}/articles/${encodeURIComponent(id)}`)).data;
+};
+
+export const uploadBlog = async (blog: Article): Promise<Article> => {
+  return (await axios.post(`${url}/upload`, blog)).data;
 };
