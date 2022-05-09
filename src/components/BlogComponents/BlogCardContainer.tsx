@@ -1,4 +1,3 @@
-import { reload } from "firebase/auth";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
@@ -15,8 +14,8 @@ interface Props {
 const BlogCardContainer = ({ singleCard, reloadCards }: Props) => {
   const { user } = useContext(AuthContext);
 
-  const deletePost = (): void => {
-    deleteBlog(singleCard._id!);
+  const deletePost = async (): Promise<void> => {
+    await deleteBlog(singleCard?._id!);
     reloadCards();
   };
 

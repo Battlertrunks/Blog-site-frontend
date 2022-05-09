@@ -23,14 +23,16 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <Routes>
-          <Route path="/" element={<ContainerBlogsRoute />} />
-          <Route path="/article/:id" element={<BlogDetailsRoute />} />
-          <Route path="/about-page" element={<AboutRoute />} />
-          <Route path="/contact-page" element={<ContactRoute />} />
-          <Route path="/create-blog" element={<BlogFormRoute />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <div className="main-components">
+          <Routes>
+            <Route path="/" element={<ContainerBlogsRoute />} />
+            <Route path="/article/:id" element={<BlogDetailsRoute />} />
+            <Route path="/about-page" element={<AboutRoute />} />
+            <Route path="/contact-page" element={<ContactRoute />} />
+            <Route path="/create-blog" element={<BlogFormRoute />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
         <Footer />
       </Router>
     </div>

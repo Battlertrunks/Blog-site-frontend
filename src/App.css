@@ -18,3 +18,10 @@
 .App Link {
   text-decoration: none;
 }
+
+.App .main-components {
+  position: relative;
+  min-height: 100vh;
+  margin-bottom: -2.5em;
+  padding-bottom: 2.5em;
+}

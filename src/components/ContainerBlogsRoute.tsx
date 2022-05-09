@@ -9,10 +9,14 @@ const ContainerBlogsRoute = () => {
 
   useEffect(() => {
     resetList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const resetList = (): void => {
-    getBlogCards().then((response) => setBlogs(response));
+    getBlogCards().then((response) => {
+      console.log("runs");
+      setBlogs(response);
+    });
   };
 
   return (

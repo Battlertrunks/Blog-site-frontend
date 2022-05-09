@@ -1,5 +1,6 @@
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { FormEvent, useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { storage } from "../../firebaseConfig";
 import Article from "../../models/Article";
@@ -30,7 +31,9 @@ const BlogFormRoute = () => {
 
   const { user } = useContext(AuthContext);
 
-  const submitHandler = (e: FormEvent) => {
+  const navigate = useNavigate();
+
+  const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
 
     const date: Date = new Date();
@@ -51,19 +54,14 @@ const BlogFormRoute = () => {
     if (files && files[0]) {
       const file = files[0];
       const storageRef = ref(storage, file.name);
-      uploadBytes(storageRef, file).then((snapshot) => {
-        getDownloadURL(snapshot.ref).then((url) => {
+      await uploadBytes(storageRef, file).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then(async (url) => {
           postToUpload.image = url;
-          uploadBlog(postToUpload);
+          await uploadBlog(postToUpload);
+          navigate("/");
         });
       });
     }
-
-    setTitle("");
-    setBody("");
-    setShortDesc("");
-    setImg_alt("");
-    fileInputImgRef.current!.value = "";
   };
 
   return (
