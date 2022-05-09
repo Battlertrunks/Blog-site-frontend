@@ -22,7 +22,6 @@ const months: string[] = [
 
 const BlogFormRoute = () => {
   const [title, setTitle] = useState<string>("");
-  const [picture, setPicture] = useState<string>("");
   const [body, setBody] = useState<string>("");
   const [shortDesc, setShortDesc] = useState<string>("");
   const [img_alt, setImg_alt] = useState<string>("");
@@ -57,10 +56,10 @@ const BlogFormRoute = () => {
     }
 
     setTitle("");
-    setPicture("");
     setBody("");
     setShortDesc("");
     setImg_alt("");
+    fileInputImgRef.current!.value = "";
   };
 
   return (
