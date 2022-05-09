@@ -1,5 +1,6 @@
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useContext, useRef, useState } from "react";
+import AuthContext from "../../context/AuthContext";
 import { storage } from "../../firebaseConfig";
 import Article from "../../models/Article";
 import { uploadBlog } from "../../services/blogSiteServices";
@@ -27,6 +28,8 @@ const BlogFormRoute = () => {
   const [img_alt, setImg_alt] = useState<string>("");
   const fileInputImgRef = useRef<HTMLInputElement>(null);
 
+  const { user } = useContext(AuthContext);
+
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
 
@@ -41,6 +44,7 @@ const BlogFormRoute = () => {
       shortDescription: shortDesc,
       date: `${months[month - 1]} ${day_num}, ${year}`,
       bodyText: body,
+      userId: user?.uid!,
     };
 
     const files = fileInputImgRef.current?.files;

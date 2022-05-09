@@ -16,3 +16,9 @@ export const getBlogDetails = async (id: string): Promise<Article> => {
 export const uploadBlog = async (blog: Article): Promise<Article> => {
   return (await axios.post(`${url}/articles/upload`, blog)).data;
 };
+
+export const deleteBlog = async (id: string): Promise<void> => {
+  return (
+    await axios.delete(`${url}/articles/delete/${encodeURIComponent(id)}`)
+  ).data;
+};

@@ -8,11 +8,12 @@ const ContainerBlogsRoute = () => {
   const [blogs, setBlogs] = useState<BlogCard[]>([]);
 
   useEffect(() => {
-    getBlogCards().then((response) => {
-      console.log(response);
-      setBlogs(response);
-    });
+    resetList();
   }, []);
+
+  const resetList = (): void => {
+    getBlogCards().then((response) => setBlogs(response));
+  };
 
   return (
     <section className={classes.ContainerBlogsRoute}>
@@ -20,7 +21,11 @@ const ContainerBlogsRoute = () => {
       <div className={classes["column-layout"]}>
         <ul>
           {blogs.map((item) => (
-            <BlogCardContainer singleCard={item} key={item._id} />
+            <BlogCardContainer
+              reloadCards={resetList}
+              singleCard={item}
+              key={item._id}
+            />
           ))}
         </ul>
       </div>

@@ -4,6 +4,7 @@ export interface Paragraph {
 
 export default interface Article {
   _id?: string;
+  userId: string;
   image?: string | undefined;
   title: string;
   shortDescription: string;
