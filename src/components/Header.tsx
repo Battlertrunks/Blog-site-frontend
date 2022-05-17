@@ -18,7 +18,9 @@ const Header = () => {
       </Link>
       {user ? (
         <div className="profile-header">
-          <p>{user.displayName}</p>
+          <Link to={`/user/${user.uid}`}>
+            <p>{user.displayName}</p>
+          </Link>
           <img src={user.photoURL!} alt="Profile" />
         </div>
       ) : (

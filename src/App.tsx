@@ -17,6 +17,7 @@ import BlogDetailsRoute from "./components/BlogComponents/BlogDetailsRoute";
 import AboutRoute from "./components/AboutComponent/AboutRoute";
 import ContactRoute from "./components/ContactComponent/ContactRoute";
 import BlogFormRoute from "./components/BlogFormComponent/BlogFormRoute";
+import UserPageRoute from "./components/UserPageComponent/UserPageRoute";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/about-page" element={<AboutRoute />} />
             <Route path="/contact-page" element={<ContactRoute />} />
             <Route path="/create-blog" element={<BlogFormRoute />} />
+            <Route path="/user/:uid" element={<UserPageRoute />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>

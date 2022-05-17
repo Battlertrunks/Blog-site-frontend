@@ -4,7 +4,11 @@ import { getBlogCards } from "../services/blogSiteServices";
 import BlogCardContainer from "./BlogComponents/BlogCardContainer";
 import classes from "./ContainerBlogsRoute.module.css";
 
-const ContainerBlogsRoute = () => {
+interface Props {
+  getUser?: string | undefined;
+}
+
+const ContainerBlogsRoute = ({ getUser }: Props) => {
   const [blogs, setBlogs] = useState<BlogCard[]>([]);
 
   useEffect(() => {
@@ -24,13 +28,25 @@ const ContainerBlogsRoute = () => {
       <h2 className={classes.title}>Recent Posts</h2>
       <div className={classes["column-layout"]}>
         <ul>
-          {blogs.map((item) => (
-            <BlogCardContainer
-              reloadCards={resetList}
-              singleCard={item}
-              key={item._id}
-            />
-          ))}
+          {getUser
+            ? blogs
+                .filter((item) => {
+                  if (item?.userId === getUser) return item;
+                })
+                .map((item) => (
+                  <BlogCardContainer
+                    reloadCards={resetList}
+                    singleCard={item}
+                    key={item._id}
+                  />
+                ))
+            : blogs.map((item) => (
+                <BlogCardContainer
+                  reloadCards={resetList}
+                  singleCard={item}
+                  key={item._id}
+                />
+              ))}
         </ul>
       </div>
     </section>
