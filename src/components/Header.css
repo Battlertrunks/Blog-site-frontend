@@ -23,7 +23,17 @@
 
 .Header h1 {
   color: #111;
-  font-size: 1.55rem;
+  font-size: 1rem;
+}
+
+.Header div {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Header .profile-header p {
+  font-size: 0.15em;
 }
 
 .Header ul {
@@ -150,14 +160,17 @@
     display: block;
   }
 
-  .Header div {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .Header h1 {
+    color: #111;
+    font-size: 1.55rem;
   }
 
   .Header .profile-header img {
     width: 35px;
+  }
+
+  .Header .profile-header p {
+    font-size: 0.75em;
   }
 
   .nav-links li {

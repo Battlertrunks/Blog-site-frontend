@@ -90,13 +90,17 @@ const BlogFormRoute = () => {
         name="Image-alt"
         id="Image-alt"
         value={img_alt}
+        maxLength={75}
         onChange={(e) => setImg_alt(e.target.value)}
+        autoComplete="off"
       />
       <label htmlFor="short-desc">Short Description</label>
       <input
         type="text"
         name="short-desc"
         id="short-desc"
+        autoComplete="off"
+        maxLength={100}
         value={shortDesc}
         onChange={(e) => setShortDesc(e.target.value)}
       />
@@ -104,7 +108,7 @@ const BlogFormRoute = () => {
       <textarea
         name="content"
         id="content"
-        placeholder="Type content here..."
+        placeholder="Type content here in HTML format..."
         value={body}
         onChange={(e) => setBody(e.target.value)}
         required
