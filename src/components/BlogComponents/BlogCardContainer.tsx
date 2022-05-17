@@ -29,7 +29,9 @@ const BlogCardContainer = ({ singleCard, reloadCards }: Props) => {
       <p>{singleCard?.shortDescription}</p>
       <ul>
         <li>
-          <p>By {singleCard.wroteBy}</p>
+          <Link to={`user/${singleCard.userId}`}>
+            <p>By {singleCard.wroteBy}</p>
+          </Link>
         </li>
         <li>
           <p className="date">- {singleCard?.date}</p>

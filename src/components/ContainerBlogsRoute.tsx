@@ -1,16 +1,18 @@
-import { User } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import BlogCard from "../models/Article";
-import { getBlogCards } from "../services/blogSiteServices";
+import { getBlogCards, getBlogsByUid } from "../services/blogSiteServices";
 import BlogCardContainer from "./BlogComponents/BlogCardContainer";
 import "./ContainerBlogsRoute.css";
 
 interface Props {
-  getUser?: User | null;
+  getUser?: boolean;
 }
 
-const ContainerBlogsRoute = ({ getUser }: Props) => {
+const ContainerBlogsRoute = ({ getUser = false }: Props) => {
   const [blogs, setBlogs] = useState<BlogCard[]>([]);
+
+  const uid: string | undefined = useParams().uid;
 
   useEffect(() => {
     resetList();
@@ -18,39 +20,31 @@ const ContainerBlogsRoute = ({ getUser }: Props) => {
   }, []);
 
   const resetList = (): void => {
-    getBlogCards().then((response) => {
-      console.log("runs");
-      setBlogs(response);
-    });
+    if (!getUser) {
+      getBlogCards().then((response) => {
+        setBlogs(response);
+      });
+    } else {
+      getBlogsByUid(uid!).then((response) => {
+        setBlogs(response);
+      });
+    }
   };
 
   return (
     <section className="ContainerBlogsRoute">
       <h2 className="title">
-        {!getUser ? "Recent Posts" : `${getUser.displayName}'s Blogs`}
+        {!getUser ? "Recent Posts" : `${blogs[0]?.wroteBy}'s Blogs`}
       </h2>
       <div className="blog-cards-container">
         <ul className="blog-cards">
-          {getUser
-            ? blogs
-                .filter((item) => {
-                  if (item?.userId === getUser.uid) return item;
-                  return null;
-                })
-                .map((item) => (
-                  <BlogCardContainer
-                    reloadCards={resetList}
-                    singleCard={item}
-                    key={item._id}
-                  />
-                ))
-            : blogs.map((item) => (
-                <BlogCardContainer
-                  reloadCards={resetList}
-                  singleCard={item}
-                  key={item._id}
-                />
-              ))}
+          {blogs.map((item) => (
+            <BlogCardContainer
+              reloadCards={resetList}
+              singleCard={item}
+              key={item._id}
+            />
+          ))}
         </ul>
       </div>
     </section>

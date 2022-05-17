@@ -9,6 +9,10 @@ export const getBlogCards = async (): Promise<Article[]> => {
   return (await axios.get(`${url}/articles`)).data;
 };
 
+export const getBlogsByUid = async (uid: string): Promise<Article[]> => {
+  return (await axios.get(`${url}/articles/${uid}`)).data;
+};
+
 export const getBlogDetails = async (id: string): Promise<Article> => {
   return (await axios.get(`${url}/articles/${encodeURIComponent(id)}`)).data;
 };
