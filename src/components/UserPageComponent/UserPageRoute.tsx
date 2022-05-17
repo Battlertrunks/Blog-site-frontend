@@ -8,7 +8,7 @@ const UserPageRoute = () => {
 
   return (
     <section className="UserPageRoute">
-      <ContainerBlogsRoute getUser={user?.uid} />
+      <ContainerBlogsRoute getUser={user} />
     </section>
   );
 };

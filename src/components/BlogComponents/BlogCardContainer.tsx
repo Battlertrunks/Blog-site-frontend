@@ -27,7 +27,15 @@ const BlogCardContainer = ({ singleCard, reloadCards }: Props) => {
       </Link>
       <div className="divider" />
       <p>{singleCard?.shortDescription}</p>
-      <p className="date">- {singleCard?.date}</p>
+      <ul>
+        <li>
+          <p>By {singleCard.wroteBy}</p>
+        </li>
+        <li>
+          <p className="date">- {singleCard?.date}</p>
+        </li>
+      </ul>
+
       {user && user.uid === singleCard.userId && (
         <button onClick={() => deletePost()}>Delete</button>
       )}

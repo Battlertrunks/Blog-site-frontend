@@ -1,11 +1,12 @@
+import { User } from "firebase/auth";
 import { useEffect, useState } from "react";
 import BlogCard from "../models/Article";
 import { getBlogCards } from "../services/blogSiteServices";
 import BlogCardContainer from "./BlogComponents/BlogCardContainer";
-import classes from "./ContainerBlogsRoute.module.css";
+import "./ContainerBlogsRoute.css";
 
 interface Props {
-  getUser?: string | undefined;
+  getUser?: User | null;
 }
 
 const ContainerBlogsRoute = ({ getUser }: Props) => {
@@ -24,14 +25,17 @@ const ContainerBlogsRoute = ({ getUser }: Props) => {
   };
 
   return (
-    <section className={classes.ContainerBlogsRoute}>
-      <h2 className={classes.title}>Recent Posts</h2>
-      <div className={classes["column-layout"]}>
-        <ul>
+    <section className="ContainerBlogsRoute">
+      <h2 className="title">
+        {!getUser ? "Recent Posts" : `${getUser.displayName}'s Blogs`}
+      </h2>
+      <div className="blog-cards-container">
+        <ul className="blog-cards">
           {getUser
             ? blogs
                 .filter((item) => {
-                  if (item?.userId === getUser) return item;
+                  if (item?.userId === getUser.uid) return item;
+                  return null;
                 })
                 .map((item) => (
                   <BlogCardContainer

@@ -3,17 +3,17 @@
   margin-top: 6em;
 }
 
-.title {
+.ContainerBlogsRoute .title {
   font-size: 1.85rem;
   text-align: center;
 }
 
-.column-layout {
+.ContainerBlogsRoute .blog-cards-container {
   display: flex;
   justify-content: center;
 }
 
-.column-layout ul {
+.ContainerBlogsRoute .blog-cards {
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 auto;
@@ -21,7 +21,7 @@
 }
 
 @media only screen and (min-width: 865px) {
-  .column-layout ul {
+  .ContainerBlogsRoute .blog-cards {
     grid-template-columns: 1fr 1fr;
   }
 }

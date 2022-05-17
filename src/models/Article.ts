@@ -11,4 +11,5 @@ export default interface Article {
   date: string;
   img_alt: string;
   bodyText: string;
+  wroteBy: string;
 }
