@@ -22,14 +22,20 @@ const BlogCardContainer = ({ singleCard, reloadCards }: Props) => {
   return (
     <li className="BlogCardContainer">
       <img src={singleCard?.image} alt={singleCard.img_alt} />
-      <Link className="link-to-article" to={`/article/${singleCard._id}`}>
+      <Link
+        className="link-to-article"
+        to={`/article/${encodeURIComponent(singleCard._id!)}`}
+      >
         <h2>{singleCard?.title}</h2>
       </Link>
       <div className="divider" />
       <p>{singleCard?.shortDescription}</p>
       <ul>
         <li>
-          <Link to={`user/${singleCard.userId}`}>
+          <Link
+            className="user-link"
+            to={`/user/${encodeURIComponent(singleCard.userId)}`}
+          >
             <p>By {singleCard.wroteBy}</p>
           </Link>
         </li>

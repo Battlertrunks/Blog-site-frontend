@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import Article from "../../models/Article";
 import { getBlogDetails } from "../../services/blogSiteServices";
 import "./BlogDetailsRoute.css";
@@ -17,11 +18,21 @@ const BlogDetailsRoute = () => {
 
   const htmlBody: string = information?.bodyText!;
 
+  console.log(information?.userId);
+
   return (
     <section className="BlogDetailsRoute">
       <div className="title-and-date-container">
         <h2>{information?.title}</h2>
         <p>- {information?.date}</p>
+      </div>
+      <div className="link-container">
+        <Link
+          className="user-link"
+          to={`/user/${encodeURIComponent(information?.userId!)}`}
+        >
+          <p>by {information?.wroteBy}</p>
+        </Link>
       </div>
       <img src={information?.image} alt={information?.img_alt} />
       <div

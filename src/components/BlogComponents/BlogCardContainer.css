@@ -7,6 +7,7 @@
   margin: 20px 10px;
   padding-bottom: 1em;
   position: relative;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Manipulate the blog image */
@@ -68,4 +69,12 @@
   list-style: none;
   margin-top: 0;
   padding-bottom: 2em;
+}
+
+.BlogCardContainer .user-link {
+  color: #666;
+}
+
+.BlogCardContainer .user-link:hover {
+  color: #222;
 }

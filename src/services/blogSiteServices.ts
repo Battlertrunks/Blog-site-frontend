@@ -10,11 +10,13 @@ export const getBlogCards = async (): Promise<Article[]> => {
 };
 
 export const getBlogsByUid = async (uid: string): Promise<Article[]> => {
-  return (await axios.get(`${url}/articles/${uid}`)).data;
+  return (await axios.get(`${url}/articles/${encodeURIComponent(uid)}`)).data;
 };
 
 export const getBlogDetails = async (id: string): Promise<Article> => {
-  return (await axios.get(`${url}/articles/${encodeURIComponent(id)}`)).data;
+  return (
+    await axios.get(`${url}/articles/view-blog/${encodeURIComponent(id)}`)
+  ).data;
 };
 
 export const uploadBlog = async (blog: Article): Promise<Article> => {

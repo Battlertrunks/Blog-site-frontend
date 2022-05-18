@@ -18,7 +18,7 @@ const Header = () => {
       </Link>
       {user ? (
         <div className="profile-header">
-          <Link to={`/user/${user.uid}`}>
+          <Link reloadDocument to={`/user/${user.uid}`}>
             <p>{user.displayName}</p>
           </Link>
           <img src={user.photoURL!} alt="Profile" />
